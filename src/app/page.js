@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [data, setData] = useState(nugll)
+  const [data, setData] = useState(null)
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get("")
