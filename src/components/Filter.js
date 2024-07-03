@@ -15,7 +15,7 @@ const Filter = ({ filters, clearFilter, removeFilter }) => {
       {...animation}
       className="absolute -bottom-[28px] left-0 w-full"
     >
-      <div className="mx-40 max-lg:mx-4 flex h-[58px] flex-wrap items-center gap-4 rounded-md bg-white px-3 font-bold shadow-lg [&>*:not(:last-child)]:bg-cyan-grayish-light-2 [&>*:not(:last-child)]:text-cyan-desaturated [<&*:not(:last-child)]:rounded-md">
+      <div className="mx-40 max-lg:mx-4 flex min-h-[58px] py-4 flex-wrap items-center gap-4 rounded-md bg-white px-3 font-bold shadow-lg [&>*:not(:last-child)]:bg-cyan-grayish-light-2 [&>*:not(:last-child)]:text-cyan-desaturated [<&*:not(:last-child)]:rounded-md">
         {filters &&
           filters.map((filter, _) => {
             return (
