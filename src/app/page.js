@@ -30,7 +30,8 @@ const Home = () => {
         return (
           user.role.includes(filter) ||
           user.level.includes(filter) ||
-          user.languages.includes(filter)
+          user.languages.includes(filter) ||
+          user.tools.includes(filter)
         );
       });
     });

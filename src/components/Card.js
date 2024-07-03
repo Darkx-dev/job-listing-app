@@ -15,6 +15,7 @@ const Card = ({
   role,
   level,
   idx,
+  tools,
   addFilter,
 }) => {
   const animation = {
@@ -68,7 +69,7 @@ const Card = ({
           </span>
         </div>
         <h2
-          className="my-1 text-xl font-bold transition-colors hover:text-cyan-desaturated max-lg:text-base cursor-pointer"
+          className="my-1 cursor-pointer text-xl font-bold transition-colors hover:text-cyan-desaturated max-lg:text-base"
           id="position"
         >
           {position}
@@ -95,6 +96,18 @@ const Card = ({
               id={`language-${++_}`}
             >
               {language}
+            </button>
+          );
+        })}
+        {tools?.map((tool, _) => {
+          return (
+            <button
+              onClick={(e) => addFilter(e.target)}
+              key={tool}
+              className="language"
+              id={`language-${++_}`}
+            >
+              {tool}
             </button>
           );
         })}

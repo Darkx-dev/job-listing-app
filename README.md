@@ -1,8 +1,8 @@
+![](./screenshot.jpg)
 # Frontend Mentor - E-commerce product page solution
 
 This is a solution to the [E-commerce product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-![](./screenshot.jpg)
 
 ## Table of contents
 
@@ -35,17 +35,17 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/Darkx-dev/sneakers-frontend](https://github.com/Darkx-dev/sneakers-frontend)
-- Live Site URL: [https://darkx-dev.github.io/sneakers-frontend](https://darkx-dev.github.io/sneakers-frontend)
+- Solution URL: [https://github.com/Darkx-dev/job-listing-app](https://github.com/Darkx-dev/job-listing-app)
+- Live Site URL: [https://darkx-dev.github.io/job-listing-app](https://darkx-dev.github.io/job-listing-app)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
+- [NextJS](https://nextjs.org/)
 - Flexbox
-- CSS Grid
+- [Framer-motion](https://www.framer.com/)
+- [Axios](https://axios-http.com/)
 - Desktop-first workflow
 - [tailwindcss](https://tailwindcss.com/) - CSS Framework
 
