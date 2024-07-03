@@ -41,7 +41,7 @@ const Filter = ({ filters, clearFilter, removeFilter }) => {
             );
           })}
         <button
-          className="ml-auto text-cyan-grayish-dark-1 transition-colors hover:text-cyan-desaturated hover:underline"
+          className="ml-auto text-cyan-grayish-dark-1 font-medium transition-colors hover:text-cyan-desaturated hover:underline"
           onClick={clearFilter}
           id="clear"
         >
