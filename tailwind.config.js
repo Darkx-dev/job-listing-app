@@ -7,12 +7,28 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        cyan: {
+          desaturated: "#5ba4a4",
+          grayish: {
+            light: {
+              1: "#effafa",
+              2: "#eef6f6",
+            },
+            dark: {
+              1: "#7b8e8e",
+              2: "#2c3a3a",
+            },
+          },
+        },
+      },
+      padding: {
+        small: "5px 8px 4px 8px",
+      },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        desktop: "url(/images/bg-header-desktop.svg)",
+        mobile: "url(/images/bg-header-mobile.svg)",
       },
     },
   },
-  plugins: [],
 };
