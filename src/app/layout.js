@@ -13,8 +13,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={leaguespartan.className}>{children}</body>
+    <html className="hide-scrollbar" lang="en">
+      <body className={leaguespartan.className + " bg-cyan-grayish-light-2"}>{children}</body>
     </html>
   );
 }

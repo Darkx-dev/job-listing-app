@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Card = ({
   id,
@@ -10,19 +11,43 @@ const Card = ({
   contract,
   location,
   isNew,
-  isFeatured,
+  featured,
+  role,
+  level,
+  idx,
+  addFilter,
 }) => {
+  const animation = {
+    initial: { opacity: 0, y: -20 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: idx * 0.1,
+      },
+    },
+  };
   return (
-    <div
-      className="relative flex items-center rounded-md px-10 py-8 shadow-lg"
+    <motion.div
+      {...animation}
+      className="relative flex items-center rounded-md bg-white px-10 py-8 shadow-lg"
       id={id}
     >
-      <span className="absolute left-0 block h-full w-1 rounded-l-md bg-cyan-desaturated" />
+      <span
+        className={`absolute left-0 block h-full w-1 rounded-l-md bg-cyan-desaturated ${!featured ? "hidden" : undefined}`}
+      />
       <div className="pr-5" id="logo">
-        <Image src={logo} height={55} width={80} alt="Logo" />
+        <Image
+          className="h-auto w-auto"
+          src={logo}
+          height={55}
+          width={80}
+          alt="Logo"
+          priority
+        />
       </div>
-      <div id="info">
-        <div className="[&>*:not(:first-child)]:p-small text-xs font-medium text-white *:mr-2 *:rounded-xl [&>*:not(:first-child)]:uppercase">
+      <div className="leading-none" id="info">
+        <div className="text-xs font-medium text-white *:mr-2 *:rounded-xl [&>*:not(:first-child)]:p-small [&>*:not(:first-child)]:uppercase">
           <span
             className="pr-2 text-base font-bold text-cyan-desaturated"
             id="company"
@@ -36,13 +61,13 @@ const Card = ({
             NEW!
           </span>
           <span
-            className={`bg-cyan-grayish-dark-2 ${!isFeatured ? "hidden" : undefined}`}
+            className={`bg-cyan-grayish-dark-2 ${!featured ? "hidden" : undefined}`}
             id="featured"
           >
             Featured
           </span>
         </div>
-        <h2 className="text-xl font-bold" id="position">
+        <h2 className="my-1 text-xl font-bold" id="position">
           {position}
         </h2>
         <div className="text-cyan-grayish-dark-1 [&>*:not(:first-child)]:px-4">
@@ -53,12 +78,27 @@ const Card = ({
           <span id="location">{location}</span>
         </div>
       </div>
-      <div className="*:bg-cyan-grayish-light-2 *:p-small ml-auto flex flex-wrap gap-4 font-bold *:rounded-sm *:text-cyan-desaturated">
+      <div className="ml-auto flex flex-wrap gap-4 font-bold *:rounded-sm *:bg-cyan-grayish-light-2 *:p-small *:text-cyan-desaturated">
+        <button onClick={(e) => addFilter(e.target)} id="role">
+          {role}
+        </button>
+        <button onClick={(e) => addFilter(e.target)} id="level">
+          {level}
+        </button>
         {languages?.map((language, _) => {
-          return <span key={language}>{language}</span>;
+          return (
+            <button
+              onClick={(e) => addFilter(e.target)}
+              key={language}
+              className="language"
+              id={`language-${++_}`}
+            >
+              {language}
+            </button>
+          );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
