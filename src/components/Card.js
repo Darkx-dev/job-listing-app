@@ -30,15 +30,15 @@ const Card = ({
   return (
     <motion.div
       {...animation}
-      className="relative flex items-center rounded-md bg-white px-10 py-8 shadow-lg"
+      className="relative flex max-lg:flex-col lg:items-center rounded-md bg-white px-10 py-8 max-lg:px-5 max-lg:py-4 shadow-lg"
       id={id}
     >
       <span
-        className={`absolute left-0 block h-full w-1 rounded-l-md bg-cyan-desaturated ${!featured ? "hidden" : undefined}`}
+        className={`absolute top-0 left-0 block h-full w-1 rounded-l-md bg-cyan-desaturated ${!featured ? "hidden" : undefined}`}
       />
-      <div className="pr-5" id="logo">
+      <div className="pr-5 max-lg:pb-4" id="logo">
         <Image
-          className="h-auto w-auto"
+          className="h-auto w-auto max-lg:absolute max-lg:w-12 -top-6"
           src={logo}
           height={55}
           width={80}
@@ -47,7 +47,7 @@ const Card = ({
         />
       </div>
       <div className="leading-none" id="info">
-        <div className="text-xs font-medium text-white *:mr-2 *:rounded-xl [&>*:not(:first-child)]:p-small [&>*:not(:first-child)]:uppercase">
+        <div className="text-xs font-medium text-white flex gap-3 flex-wrap *:rounded-xl [&>*:not(:first-child)]:p-small [&>*:not(:first-child)]:uppercase">
           <span
             className="pr-2 text-base font-bold text-cyan-desaturated"
             id="company"
@@ -67,18 +67,18 @@ const Card = ({
             Featured
           </span>
         </div>
-        <h2 className="my-1 text-xl font-bold" id="position">
+        <h2 className="my-1 text-xl max-lg:text-base font-bold" id="position">
           {position}
         </h2>
-        <div className="text-cyan-grayish-dark-1 [&>*:not(:first-child)]:px-4">
-          <span className="pr-4" id="postedAt">
+        <div className="text-cyan-grayish-dark-1 *:text-nowrap gap-4 flex flex-wrap max-lg:gap-2">
+          <span id="postedAt">
             {postedAt}
           </span>
           •<span id="contract">{contract}</span>•
           <span id="location">{location}</span>
         </div>
       </div>
-      <div className="ml-auto flex flex-wrap gap-4 font-bold *:rounded-sm *:bg-cyan-grayish-light-2 *:p-small *:text-cyan-desaturated">
+      <div className="lg:ml-auto max-lg:border-t-2 max-lg:pt-3 max-lg:mt-3 flex flex-wrap gap-4 font-bold *:rounded-sm *:bg-cyan-grayish-light-2 *:p-small *:text-cyan-desaturated">
         <button onClick={(e) => addFilter(e.target)} id="role">
           {role}
         </button>

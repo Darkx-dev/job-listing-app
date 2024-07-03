@@ -2,11 +2,10 @@
 import Card from "@/components/Card";
 import Filter from "@/components/Filter";
 import axios from "axios";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [filterList, setFilterList] = useState([]);
 
@@ -25,19 +24,17 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    let tempData = [];
-    filterList.forEach((filter) => {
-      tempData = (filteredData.length > 1 ? filteredData : data)?.filter(
-        (user) => {
-          // Level check
-          let isLevelMatch = user.level === filter;
-          // Role check
-          let isRoleMatch = user.role === filter;
-          return isLevelMatch || isRoleMatch;
-        },
-      );
+    const tempData = data;
+    let arr = tempData.filter((user) => {
+      return filterList.every((filter) => {
+        return (
+          user.role.includes(filter) ||
+          user.level.includes(filter) ||
+          user.languages.includes(filter)
+        );
+      });
     });
-    setFilteredData([...tempData]);
+    setFilteredData(arr);
   }, [filterList]);
 
   const addFilter = (filterTarget) => {
@@ -72,7 +69,7 @@ const Home = () => {
       </header>
       {/* Main */}
       <main className="min-h-[calc(100vh-156px)]">
-        <div className="space-y-6 lg:mx-40 lg:my-16">
+        <div className="mx-40 my-16 space-y-6 max-lg:mx-4 max-lg:space-y-12">
           {/* Users */}
           {data &&
             (filterList.length > 0 ? filteredData : data).map((user, _) => {
